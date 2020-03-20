@@ -2,7 +2,7 @@ use: abc...
 use: data (Record record: set)
 use: time (Time + days today)
 
-type: Quantity Record
+type: Quantity () Record
 
 method: new-quantity(; Quantity) {
   record: (
@@ -19,7 +19,7 @@ method: update(in Quantity (start end) Time (total available) Int; Quantity) {
   }
 }
 
-type: Calendar Slice
+type: Calendar () Slice
 
 method: new-calendar(; Calendar) {
   [new-quantity] as-calendar
@@ -29,7 +29,7 @@ method: update-quantity(in Calendar (start end) Time (total available) Int; Cale
   [in map: ($ update(start end total available))...] as-calendar
 }
 
-type: Resource Record
+type: Resource () Record
 
 method: new-resource(; Resource) {
   record: (calendar new-calendar) as-resource
@@ -39,7 +39,7 @@ method: update-calendar(in Resource (start end) Time (total available) Int;) {
   in set('calendar in.calendar update-quantity(start end total available))
 }
 
-type: Booking Record
+type: Booking () Record
 
 method: new-booking(; Booking) {
   let: t today
