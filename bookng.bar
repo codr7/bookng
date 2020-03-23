@@ -26,7 +26,7 @@ method: new-calendar(; Calendar) {
 }
 
 method: update-quantity(in Calendar (start end) Time (total available) Int; Calendar) {
-  [in map: (update(start end total available))...] as-calendar
+  [in map: _ update(start end total available)...] as-calendar
 }
 
 type: Resource () Record
